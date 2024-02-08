@@ -42,15 +42,15 @@ print('standard deviation',salary_std,end='')
 print()
 print('*Data Cleaning*')
 #handle data
-#first i will fill the missing data in  Status and Notes columns with  null  because 
+#first i will fill the missing data in  Status and Notes columns with  0  because 
 # the entire 2  columns are  miss filling that is mean  The person who filled  the data does not want to fill  these two columns 
 missing_values = df['Notes'].isnull().sum()
 if missing_values:
-    df['Notes'].fillna('', inplace=True)
+    df['Notes'].fillna(0, inplace=True)
     df.to_csv('Salaries.csv', index=False)
 missing_values = df['Status'].isnull().sum()
 if missing_values:
-    df['Status'].fillna('', inplace=True)
+    df['Status'].fillna(0, inplace=True)
     df.to_csv('Salaries.csv', index=False)
 #second i will fill the missing data in  Benefits column with  0  because 
 #Benefits  are not available to all employees
