@@ -65,8 +65,20 @@ if missing_values:
     num=input("enter the number to fill missing values in Base Pay column")
     df['BasePay'].fillna(num, inplace=True)
     df.to_csv('Salaries.csv', index=False)
-print('Basic Data Visualization')
+#forth  i will ask the person who fill data to dataset to enter the OtherPay,OvertimePay values to fill the misses in these columns 
+#because the OtherPay,OvertimePay columns have few number of misses 
+missing_values = df['OtherPay'].isnull().sum()
+if missing_values:
+    num=input("enter the number to fill missing values in OtherPay column")
+    df['OtherPay'].fillna(num, inplace=True)
+    df.to_csv('Salaries.csv', index=False)
+missing_values = df['OvertimePay'].isnull().sum()
+if missing_values:
+    num=input("enter the number to fill missing values in OvertimePay column")
+    df['OvertimePay'].fillna(num, inplace=True)
+    df.to_csv('Salaries.csv', index=False)
 
+print('Basic Data Visualization')
 #histograms  of TotalPay column
 plt.hist(df['TotalPay'], bins=40)
 plt.xlabel('TotalPay')
